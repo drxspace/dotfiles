@@ -1,0 +1,26 @@
+# ------------------------------------------------------------------------[ ls ]
+alias dl='ls -d {.*,*}/ -1'
+alias d='ls -d */ -1'
+alias lf='ls -1Ap | grep -v /$'
+alias lia='ls -lia'
+alias ll='ls -AlhF --group-directories-first'
+# -----------------------------------------------------------------------[ git ]
+alias ga='git add .'
+alias gb='git branch -a'
+alias gc='git checkout'
+alias gcm='git commit -am'
+alias gd='git diff'
+alias gl='git log'
+alias gs='git status'
+# ----------------------------------------------------------------------[ Misc ]
+alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
+alias ka='killall'
+alias logoff='gnome-session-quit'
+alias noless='grep -Ev '\''^(#|$)'\'''
+alias OnlyMe='cd ; sudo chown -R $(whoami):$(id -gn `whoami`) ~'
+alias path='echo -e ${PATH//:/\\n}'
+#alias rm='rm -i'
+alias srch='sudo find / -mount -name'
+alias tmount='mount | column -t'
+# ---------------------------------------------------------------------[ Other ]
+PS1='\[\e[0;36m\]┌─[\[\e[0m\]\[\e[1;33m\]\u\[\e[0m\]\[\e[1;36m\] @ \[\e[0m\]\[\e[1;33m\]\h\[\e[0m\]\[\e[0;36m\]]─[\[\e[0m\]\[\e[1;34m\]\w\[\e[0m\]\[\e[0;36m\]]\[\e[0;36m\]\[\e[0m\]\[\e[0;36m\]\[\e[0m\]\n\[\e[0;36m\]└─[\[\e[0m\]\[\e[1;37m\]\$\[\e[0m\]\[\e[0;36m\]]› \[\e[0m\]'
