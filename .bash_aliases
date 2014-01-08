@@ -29,7 +29,7 @@ if [[ $EUID -eq 0 ]]; then
 		alias aptver='chkpkgver'
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
-	elseif [[ ${DISTRO} == "opensuse" ]]; then
+	elif [[ ${DISTRO} == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
 		alias zup='zypper up'
 		alias zcl='zypper cc -a'
