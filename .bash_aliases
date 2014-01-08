@@ -60,6 +60,8 @@ alias gs='git status'
 # -----------------------------------------------------------------------------]
 
 # ----------------------------------------------------------------------[ Misc ]
+alias ..='cd ..'
+alias ...='cd ../..'
 alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
 alias distro='echo ${DISTRO}'
 alias ka='killall'
