@@ -13,7 +13,7 @@ DISTRO=$(cat /etc/*release | awk -F= '/^ID=/ { print tolower($2) }')
 # -----------------------------------------------------------------------------]
 
 if [[ $EUID -eq 0 ]]; then
-	if [[ ${DISTRO} == "ubuntu" ]] || [[ ${DISTRO} == "debian" ]]; then
+	if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
 		chkpkgver () {
 			local pkgver=$(dpkg -s $1 2>/dev/null)
 			if grep -q "Version" <<< ${pkgver}; then
@@ -29,7 +29,7 @@ if [[ $EUID -eq 0 ]]; then
 		alias aptver='chkpkgver'
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
-	elif [[ ${DISTRO} == "opensuse" ]]; then
+	elif [[ "${DISTRO}" == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
 		alias zup='zypper up'
 		alias zcl='zypper cc -a'
