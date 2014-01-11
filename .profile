@@ -14,9 +14,16 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
-elif [ -d "$HOME/bin" ] ; then
+else
     # set PATH so it includes user's private bin if it exists
-    export PATH="$HOME/bin:$PATH"
+    if [ -d "$HOME/bin" ] ; then
+        PATH="$HOME/bin:$PATH"
+    fi
+    # set PATH so it includes user's private sbin if it exists
+    if [ -d "$HOME/sbin" ] ; then
+        PATH="$HOME/sbin:$PATH"
+    fi
+    export PATH
 fi
 
 # In order to use Qt, some environment variables needs to be extended.
