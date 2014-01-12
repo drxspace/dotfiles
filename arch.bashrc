@@ -28,8 +28,13 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
+    PATH="$HOME/bin:$PATH"
 fi
+# set PATH so it includes user's private sbin if it exists
+if [ -d "$HOME/sbin" ] ; then
+    PATH="$HOME/sbin:$PATH"
+fi
+export PATH
 
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
@@ -39,4 +44,4 @@ xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
 
-fortune | cowsay -f turtle
+if [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
