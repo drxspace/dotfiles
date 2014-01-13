@@ -8,7 +8,6 @@
 
 # If not running in a virtual console, tell it
 [[ "$(tty)" == *pts* ]] && VC=0 || VC=1
-export VC
 
 # enable color support of ls and also add handy aliases
 if [[ $VC -eq 0 ]] && [[ -x /usr/bin/dircolors ]] ; then
@@ -49,3 +48,5 @@ xhost +local:root > /dev/null 2>&1
 complete -cf sudo
 
 if [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
+
+unset VC

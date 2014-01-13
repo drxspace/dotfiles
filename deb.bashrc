@@ -7,7 +7,6 @@
 
 # If not running in a virtual console, tell it
 [[ "$(tty)" == *pts* ]] && VC=0 || VC=1
-export VC
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -113,5 +112,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
+
+unset VC
 
 #export EDITOR=/usr/bin/vim.nox
