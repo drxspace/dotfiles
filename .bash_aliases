@@ -9,7 +9,7 @@
 #
 
 # --------------------------------------------------------------------[ global ]
-DISTRO=$(cat /etc/*release | awk -F= '/^ID=/ { print tolower($2) }')
+DISTRO=$(cat /etc/*release 2>/dev/null | awk -F= '/^ID=/ { thisdistro=$2; } /^ID_.*=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
 # -----------------------------------------------------------------------------]
 
 if [[ $EUID -eq 0 ]]; then
