@@ -55,7 +55,7 @@ alias ll='ls -AlhF --group-directories-first'
 # -----------------------------------------------------------------------------]
 
 # -----------------------------------------------------------------------[ git ]
-alias ga='git add .'
+alias ga='git add'
 alias gb='git branch -a'
 alias gc='git checkout'
 alias gcm='git commit -am'
