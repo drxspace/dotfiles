@@ -4,16 +4,16 @@ Linux - user startup scripts
 For Debian/Ubuntu distros
 -------------------------
 ```bash
-wget 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' > .bashrc
-wget 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' > .bash_aliases
-wget 'https://raw.github.com/drxspace/dotfiles/master/.profile' > .profile
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bashrc
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' -O .bash_aliases
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/.profile' -O .profile
 ```
 
 For Arch distros
 ----------------
 ```bash
-wget 'https://raw.github.com/drxspace/dotfiles/master/arch.bashrc' > .bashrc
-wget 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' > .bash_aliases
-wget 'https://raw.github.com/drxspace/dotfiles/master/.profile' > .profile
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/arch.bashrc' -O .bashrc
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' -O .bash_aliases
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/.profile' -O .profile
 ```
 
