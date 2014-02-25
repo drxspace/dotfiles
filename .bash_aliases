@@ -62,12 +62,15 @@ alias gcm='git commit -am'
 alias gd='git diff'
 alias gl='git log'
 alias gs='git status'
+alias gull='git pull'
+alias gush='git push'
 # -----------------------------------------------------------------------------]
 
 # ----------------------------------------------------------------------[ Misc ]
 alias ..='cd ..'
 alias ...='cd ../..'
 alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
+[[ $(which colordiff) ]] && alias diff='colordiff'
 alias distro='echo ${DISTRO}'
 alias ka='killall'
 alias logoff='gnome-session-quit'
