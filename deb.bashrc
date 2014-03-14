@@ -118,6 +118,8 @@ if [ -d "$HOME/sbin" ] ; then
 fi
 export PATH
 
+if [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
+
 unset VC
 
 #export EDITOR=/usr/bin/vim.nox
