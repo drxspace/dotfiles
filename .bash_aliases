@@ -12,21 +12,21 @@
 DISTRO=$(cat /etc/*release 2>/dev/null | awk -F= '/^ID=/ { thisdistro=$2; } /^ID_.*=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
 # -----------------------------------------------------------------------------]
 
+if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
+	chkpkgver () {
+		local pkgver=$(dpkg -s $1 2>/dev/null)
+		if grep -q "Version" <<< ${pkgver}; then
+			sed -n 's/^.*Version: \([^ ]*\) .*/\1/p' <<< ${pkgver}
+		else
+			echo "package '$1' is not installed and no information is available"
+		fi
+	}
+
 if [[ $EUID -eq 0 ]]; then
-	if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
-		chkpkgver () {
-			local pkgver=$(dpkg -s $1 2>/dev/null)
-			if grep -q "Version" <<< ${pkgver}; then
-				sed -n 's/^.*Version: \([^ ]*\) .*/\1/p' <<< ${pkgver}
-			else
-				echo "package '$1' is not installed and no information is available"
-			fi
-		}
 		# -------------------------------------------------------[ apt ]
 		alias aptins='apt-get install'
 		alias aptprg='apt-get autoremove --purge'
 		alias aptrns='apt-get install --reinstall'
-		alias aptver='chkpkgver'
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "opensuse" ]]; then
@@ -69,6 +69,7 @@ alias gush='git push'
 # ----------------------------------------------------------------------[ Misc ]
 alias ..='cd ..'
 alias ...='cd ../..'
+alias chkpkg='chkpkgver'
 alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
 [[ $(which colordiff) ]] && alias diff='colordiff'
 alias distro='echo ${DISTRO}'
