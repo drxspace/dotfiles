@@ -13,7 +13,7 @@ DISTRO=$(cat /etc/*release 2>/dev/null | awk -F= '/^ID=/ { thisdistro=$2; } /^ID
 # -----------------------------------------------------------------------------]
 
 if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
-	chkpkgver () {
+	getpkgver () {
 		local pkgver=$(dpkg -s $1 2>/dev/null)
 		if grep -q "Version" <<< ${pkgver}; then
 			sed -n 's/^.*Version: \([^ ]*\) .*/\1/p' <<< ${pkgver}
@@ -21,8 +21,11 @@ if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
 			echo "package '$1' is not installed and no information is available"
 		fi
 	}
+	alias isins='getpkgver'
+fi
 
 if [[ $EUID -eq 0 ]]; then
+	if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
 		# -------------------------------------------------------[ apt ]
 		alias aptins='apt-get install'
 		alias aptprg='apt-get autoremove --purge'
@@ -69,7 +72,6 @@ alias gush='git push'
 # ----------------------------------------------------------------------[ Misc ]
 alias ..='cd ..'
 alias ...='cd ../..'
-alias chkpkg='chkpkgver'
 alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
 [[ $(which colordiff) ]] && alias diff='colordiff'
 alias distro='echo ${DISTRO}'
