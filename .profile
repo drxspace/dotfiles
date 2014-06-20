@@ -26,5 +26,8 @@ else
     export PATH
 fi
 
+# http://www.tecmint.com/history-command-examples/
+export HISTCONTROL=ignoreboth
+
 # In order to use Qt, some environment variables needs to be extended.
 #export PATH=/usr/local/Trolltech/Qt-4.8.4/bin:$PATH
