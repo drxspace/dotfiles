@@ -50,3 +50,6 @@ complete -cf sudo
 if [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
 
 unset VC
+
+# http://www.tecmint.com/history-command-examples/
+export HISTCONTROL=ignoreboth
