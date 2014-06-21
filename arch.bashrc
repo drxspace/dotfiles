@@ -53,3 +53,5 @@ unset VC
 
 # http://www.tecmint.com/history-command-examples/
 export HISTCONTROL=ignoreboth
+
+#export PULSE_LATENCY_MSEC=60
