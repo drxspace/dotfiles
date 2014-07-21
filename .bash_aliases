@@ -82,9 +82,10 @@ alias noless='grep -Ev '\''^(#|$)'\'''
 alias path='echo -e ${PATH//:/\\n}'
 alias shutup='sudo shutdown -h now'
 alias srch='sudo find / -mount -iname'
-alias tmount='mount | column -t'
-alias you2me='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
 alias S='sudo'
+alias tmount='mount | column -t'
+alias wmesg='dmesg | grep -Ei "(error|warning)"'
+alias you2me='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
 # -----------------------------------------------------------------------------]
 
 # ---------------------------------------------------------------------[ Other ]
