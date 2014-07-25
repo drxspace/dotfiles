@@ -34,8 +34,10 @@ if [[ $EUID -eq 0 ]]; then
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
-		alias zup='zypper up'
 		alias zcl='zypper cc -a'
+		alias zdup='zypper dup'
+		alias zref='zypper ref'
+		alias zup='zypper up'
 		# -------------------------------------------------------------]
 	fi
 
