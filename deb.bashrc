@@ -123,3 +123,6 @@ if [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
 unset VC
 
 #export EDITOR=/usr/bin/vim.nox
+
+# Betty Assitant
+alias betty="$HOME/bin/betty/main.rb"
