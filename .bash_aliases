@@ -9,7 +9,6 @@
 #
 
 # --------------------------------------------------------------------[ global ]
-#DISTRO=$(cat /etc/*release 2>/dev/null | awk -F= '/^ID=/ { thisdistro=$2; } /^ID_.*=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
 DISTRO=$(cat /etc/*release 2>/dev/null | awk -F= '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
 # -----------------------------------------------------------------------------]
 
