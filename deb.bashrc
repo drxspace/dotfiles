@@ -125,4 +125,4 @@ unset VC
 #export EDITOR=/usr/bin/vim.nox
 
 # Betty Assitant
-alias betty="$HOME/bin/betty/main.rb"
+alias betty="$HOME/betty/main.rb"
