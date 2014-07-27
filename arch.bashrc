@@ -47,11 +47,14 @@ xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
 
-if [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
-
-unset VC
-
 # http://www.tecmint.com/history-command-examples/
 export HISTCONTROL=ignoreboth
 
+if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
+
+unset VC
+
 #export PULSE_LATENCY_MSEC=60
+
+# Betty Assitant
+if [[ -f "$HOME/betty/main.rb" ]]; then alias betty="$HOME/betty/main.rb"; fi

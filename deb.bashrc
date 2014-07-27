@@ -118,11 +118,11 @@ if [ -d "$HOME/sbin" ] ; then
 fi
 export PATH
 
-if [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
+if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
 
 unset VC
 
 #export EDITOR=/usr/bin/vim.nox
 
 # Betty Assitant
-alias betty="$HOME/betty/main.rb"
+if [[ -f "$HOME/betty/main.rb" ]]; then alias betty="$HOME/betty/main.rb"; fi
