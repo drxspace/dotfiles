@@ -87,7 +87,7 @@ alias srch='sudo find / -mount -iname'
 alias S='sudo'
 alias tmount='mount | column -t'
 alias wmesg='dmesg | grep -Ei "(error|warning)"'
-alias you2me='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
+alias you2me='youtube-dl -q -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
 # -----------------------------------------------------------------------------]
 
 # ---------------------------------------------------------------------[ Other ]
