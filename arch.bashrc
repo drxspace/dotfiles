@@ -54,7 +54,4 @@ if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay
 
 unset VC
 
-#export PULSE_LATENCY_MSEC=60
-
-# Betty Assitant
-if [[ -f "$HOME/betty/main.rb" ]]; then alias betty="$HOME/betty/main.rb"; fi
+export EDITOR="vi"
