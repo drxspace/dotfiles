@@ -21,3 +21,12 @@ wget -q 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
 
 ```
 
+For OpenSUSE distros
+----------------
+```bash
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/arch.bashrc' -O .bashrc
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' -O .alias
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/.profile' -O .profile
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+
+```
