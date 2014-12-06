@@ -29,7 +29,7 @@ if [[ $EUID -eq 0 ]]; then
 		# -------------------------------------------------------[ apt ]
 		alias aptins='apt-get install'
 		alias aptprg='apt-get autoremove --purge'
-		alias aptrns='apt-get install --reinstall'
+		alias aptrns='apt-get install --purge --reinstall'
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "opensuse" ]]; then
