@@ -32,6 +32,13 @@ if [[ $EUID -eq 0 ]]; then
 		alias aptrns='apt-get install --purge --reinstall'
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
+	elif [[ "${DISTRO}" == "fedora" ]]; then
+		# -------------------------------------------------------[ zyp ]
+		alias zcc='zyp clean all'
+		alias zef='zyp check-update'
+		alias zug='zyp upgrade'
+		alias zup='zyp update'
+		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
 		alias zcc='zypper clean -a'
@@ -60,41 +67,45 @@ alias ll='ls -AlhF --group-directories-first'
 # -----------------------------------------------------------------------------]
 
 # -----------------------------------------------------------------------[ git ]
-alias ga='git add'
-alias gb='git branch -a'
-alias gc='git checkout'
-alias gcm='git commit -am'
-alias gd='git diff'
-alias gl='git log'
-alias gs='git status'
-alias gull='git pull'
-alias gush='git push'
+[[ $(which git 2>/dev/null) ]] && {
+	alias ga='git add'
+	alias gb='git branch -a'
+	alias gc='git checkout'
+	alias gcm='git commit -am'
+	alias gd='git diff'
+	alias gl='git log'
+	alias gs='git status'
+	alias gull='git pull'
+	alias gush='git push'
+}
 # -----------------------------------------------------------------------------]
 
 # ----------------------------------------------------------------------[ Misc ]
 alias ..='cd ..'
 alias ...='cd ../..'
-alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
+[[ $(which bleachbit 2>/dev/null) ]] && alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
 [[ $(which colordiff 2>/dev/null) ]] && alias diff='colordiff'
 alias distro='echo ${DISTRO}'
 alias ka='killall'
 alias kbd='sudo kbdrate -r 24 -d 750'
-alias logoff='gnome-session-quit'
+[[ $(which gnome-session-quit 2>/dev/null) ]] && alias logoff='gnome-session-quit'
 alias MyDirs='sudo chown -R $(id -un):$(id -gn)'
 alias noless='grep -Ev '\''^(#|$)'\'''
 alias path='echo -e ${PATH//:/\\n}'
 alias shutup='sudo shutdown -h now'
 alias srch='sudo find / -mount -iname'
 alias S='sudo'
-alias ted='youtube-dl -q --console-title -o "%(title)s.%(ext)s" --write-sub --sub-lang "en,el"'
+[[ $(which youtube-dl 2>/dev/null) ]] && {
+	alias ted='youtube-dl -q --console-title -o "%(title)s.%(ext)s" --write-sub --sub-lang "en,el"'
+	alias you2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
+}
 alias tmount='mount | column -t'
 alias wmesg='dmesg | grep -Ei "(error|warn|fail|taint|disa)"'
-alias you2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
 # -----------------------------------------------------------------------------]
 
 # ---------------------------------------------------------------------[ Other ]
-if [[ ${VC:=0} -eq 0 ]]; then
-	if [[ $EUID -ne 0 ]]; then
+if [ ${VC:=0} -eq 0 ]; then
+	if [ $EUID -ne 0 ]; then
 		PS1='\[\e[0;36m\]┌─[\[\e[0m\]\[\e[1;33m\]\u\[\e[0m\]\[\e[1;36m\] @ \[\e[0m\]\[\e[1;33m\]\h\[\e[0m\]\[\e[0;36m\]]─[\[\e[0m\]\[\e[1;34m\]\w\[\e[0m\]\[\e[0;36m\]]\[\e[0;36m\]\[\e[0m\]\[\e[0;36m\]\[\e[0m\]\n\[\e[0;36m\]└─[\[\e[0m\]\[\e[1;37m\]\$\[\e[0m\]\[\e[0;36m\]]› \[\e[0m\]'
 	else
 		PS1="\342\225\255\342\224\244\[\e[0;96m\]\u@\h \342\232\231 \w\[\e[0;0m\]\342\224\234\342\210\230\n\342\225\260\342\224\200\342\232\231 "
