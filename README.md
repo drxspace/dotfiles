@@ -25,7 +25,7 @@ Fedora distros
 ----------------
 ```bash
 wget -q 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bashrc
-wget -q 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' -O .bash_alias
+wget -q 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' -O .bash_aliases
 wget -q 'https://raw.github.com/drxspace/dotfiles/master/.profile' -O .bash_profile
 wget -q 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
 
