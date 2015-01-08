@@ -33,11 +33,11 @@ if [[ $EUID -eq 0 ]]; then
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "fedora" ]]; then
-		# -------------------------------------------------------[ zyp ]
-		alias zcc='zyp clean all'
-		alias zef='zyp check-update'
-		alias zug='zyp upgrade'
-		alias zup='zyp update'
+		# -------------------------------------------------------[ yum ]
+		alias ycc='yum clean all'
+		alias yef='yum check-update'
+		alias yug='yum upgrade'
+		alias yup='yum update'
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
