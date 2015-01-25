@@ -25,7 +25,7 @@ if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
 fi
 
 if [[ $EUID -eq 0 ]]; then
-	if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
+	if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]] || [[ "${DISTRO}" == "netrunner" ]]; then
 		# -------------------------------------------------------[ apt ]
 		alias aptins='apt-get install'
 		alias aptprg='apt-get autoremove --purge'
