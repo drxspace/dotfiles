@@ -71,7 +71,6 @@ alias ll='ls -AlhF --group-directories-first'
 
 PullAllGitHubs() {
 	[[ -d ~/gitProjects/ ]] && {
-		local StoredCD="$(dirname "$0")";
 		cd ~/gitProjects/;
 	} || exit 1;
 	for d in $(ls -d */ -1)
@@ -81,7 +80,6 @@ PullAllGitHubs() {
 		git pull || break;
 		cd ..;
 	done;
-	cd "${StoredCD}"
 }
 
 	alias ga='git add'
