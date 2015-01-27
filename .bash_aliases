@@ -99,7 +99,7 @@ __PullAllGitHubs__() {
 
 # ----------------------------------------------------------------------[ Misc ]
 alias +='pushd . >/dev/null'
-alias -- -='popd >/dev/null'
+alias -='popd >/dev/null'
 alias ?='dirs -v'
 alias ..='cd ..'
 alias ...='cd ../..'
