@@ -71,7 +71,7 @@ alias ll='ls -AlhF --group-directories-first'
 
 __PullAllGitHubs__() {
 	[[ -d ~/gitProjects/ ]] && {
-		pushd;
+		pushd . >/dev/null;
 		cd ~/gitProjects/;
 	} || exit 1;
 	for d in $(ls -d */ -1)
@@ -81,7 +81,7 @@ __PullAllGitHubs__() {
 		git pull || break;
 		cd ..;
 	done;
-	popd;
+	popd >/dev/null;
 }
 
 	alias ga='git add'
@@ -98,8 +98,8 @@ __PullAllGitHubs__() {
 # -----------------------------------------------------------------------------]
 
 # ----------------------------------------------------------------------[ Misc ]
-alias +='pushd'
-alias -- -='popd'
+alias +='pushd . >/dev/null'
+alias -- -='popd >/dev/null'
 alias ?='dirs -v'
 alias ..='cd ..'
 alias ...='cd ../..'
