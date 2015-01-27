@@ -69,8 +69,9 @@ alias ll='ls -AlhF --group-directories-first'
 # -----------------------------------------------------------------------[ git ]
 [[ $(which git 2>/dev/null) ]] && {
 
-PullAllGitHubs() {
+__PullAllGitHubs__() {
 	[[ -d ~/gitProjects/ ]] && {
+		pushd;
 		cd ~/gitProjects/;
 	} || exit 1;
 	for d in $(ls -d */ -1)
@@ -80,6 +81,7 @@ PullAllGitHubs() {
 		git pull || break;
 		cd ..;
 	done;
+	popd;
 }
 
 	alias ga='git add'
@@ -87,7 +89,7 @@ PullAllGitHubs() {
 	alias gc='git checkout'
 	alias gcm='git commit -am'
 	alias gd='git diff'
-	alias gitget='{ PullAllGitHubs }'
+	alias gitget='__PullAllGitHubs__'
 	alias gl='git log'
 	alias gs='git status'
 	alias gull='git pull'
@@ -96,6 +98,9 @@ PullAllGitHubs() {
 # -----------------------------------------------------------------------------]
 
 # ----------------------------------------------------------------------[ Misc ]
+alias +='pushd'
+alias -- -='popd'
+alias ?='dirs -v'
 alias ..='cd ..'
 alias ...='cd ../..'
 [[ $(which bleachbit 2>/dev/null) ]] && alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
