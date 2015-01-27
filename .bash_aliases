@@ -87,7 +87,7 @@ PullAllGitHubs() {
 	alias gc='git checkout'
 	alias gcm='git commit -am'
 	alias gd='git diff'
-	alias gitget='PullAllGitHubs'
+	alias gitget='{ PullAllGitHubs }'
 	alias gl='git log'
 	alias gs='git status'
 	alias gull='git pull'
