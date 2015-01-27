@@ -68,12 +68,28 @@ alias ll='ls -AlhF --group-directories-first'
 
 # -----------------------------------------------------------------------[ git ]
 [[ $(which git 2>/dev/null) ]] && {
+
+PullAllGitHubs() {
+	[[ -d ~/gitProjects/ ]] && {
+		local StoredCD="$(dirname "$0")";
+		cd ~/gitProjects/;
+	} || exit 1;
+	for d in $(ls -d */ -1)
+	do
+		echo "Getting into $d"; cd "$d";
+		echo "Pulling GitHub's data...";
+		git pull || break;
+		cd ..;
+	done;
+	cd "${StoredCD}"
+}
+
 	alias ga='git add'
 	alias gb='git branch -a'
 	alias gc='git checkout'
 	alias gcm='git commit -am'
 	alias gd='git diff'
-	alias gitget='cd ~/gitProjects/ && for d in $(ls -d */ -1); do echo "Getting into $d"; cd "$d"; echo "Pulling GitHub's data..."; git pull || break; cd ..; done && cd'
+	alias gitget='PullAllGitHubs'
 	alias gl='git log'
 	alias gs='git status'
 	alias gull='git pull'
