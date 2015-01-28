@@ -9,20 +9,8 @@
 #
 
 # --------------------------------------------------------------------[ global ]
-DISTRO=$(cat /etc/*release 2>/dev/null | awk -F= '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
+DISTRO=$(cat /etc/*release 2>/dev/null | awk -F'=' '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
 # -----------------------------------------------------------------------------]
-
-if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]]; then
-	getpkgver () {
-		local pkgver=$(dpkg -s $1 2>/dev/null)
-		if grep -q "Version" <<< ${pkgver}; then
-			sed -n 's/^.*Version: \([^ ]*\) .*/\1/p' <<< ${pkgver}
-		else
-			echo "package '$1' is not installed and no information is available"
-		fi
-	}
-	alias isins='getpkgver'
-fi
 
 if [[ $EUID -eq 0 ]]; then
 	if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]] || [[ "${DISTRO}" == "netrunner" ]]; then
