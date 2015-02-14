@@ -12,8 +12,11 @@
 DISTRO=$(cat /etc/*release 2>/dev/null | awk -F'=' '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
 # -----------------------------------------------------------------------------]
 
+deb="ubuntu|debian|netrunner"
+
 if [[ $EUID -eq 0 ]]; then
-	if [[ "${DISTRO}" == "ubuntu" ]] || [[ "${DISTRO}" == "debian" ]] || [[ "${DISTRO}" == "netrunner" ]]; then
+#	if [[ "${DISTRO}" == "" ]] || [[ "${DISTRO}" == "debian" ]] || [[ "${DISTRO}" == "netrunner" ]]; then
+	if [[ "${DISTRO}" =~ "${deb}" ]]; then
 		# -------------------------------------------------------[ apt ]
 		alias aptins='apt-get install'
 		alias aptprg='apt-get autoremove --purge'
@@ -45,6 +48,8 @@ if [[ $EUID -eq 0 ]]; then
 	alias rm='rm -i'
 	# ---------------------------------------------------------------------]
 fi
+
+unset deb
 
 # ------------------------------------------------------------------------[ ls ]
 alias dl='ls -d {.*,*}/ -1'
