@@ -24,7 +24,7 @@ if [[ $EUID -eq 0 ]]; then
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "fedora" ]]; then
 		# -------------------------------------------------------[ yum ]
-		alias ycc='yum clean all'
+		alias ycc='yum autoremove && yum clean all'
 		alias yef='yum check-update'
 		alias yug='yum upgrade'
 		alias yup='yum update'
