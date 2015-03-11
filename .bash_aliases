@@ -25,9 +25,10 @@ if [[ $EUID -eq 0 ]]; then
 	elif [[ "${DISTRO}" == "fedora" ]]; then
 		# -------------------------------------------------------[ yum ]
 		alias ycc='yum autoremove && yum clean all'
-		alias yef='yum check-update'
-		alias yug='yum upgrade --skip-broken'
-		alias yup='yum update --skip-broken'
+		#alias yef='yum check-update'
+		alias yin='yum install'
+		alias yug='yum check-update && yum upgrade --skip-broken'
+		alias yup='yum check-update && yum update --skip-broken'
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
