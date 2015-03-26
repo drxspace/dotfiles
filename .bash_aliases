@@ -25,7 +25,6 @@ if [[ $EUID -eq 0 ]]; then
 	elif [[ "${DISTRO}" == "fedora" ]]; then
 		# -------------------------------------------------------[ yum ]
 		alias ycc='yum autoremove ; yum clean all'
-		#alias yef='yum check-update'
 		alias yin='yum install'
 		alias yug='yum check-update ; yum upgrade --skip-broken'
 		alias yup='yum check-update ; yum update --skip-broken'
@@ -49,8 +48,6 @@ if [[ $EUID -eq 0 ]]; then
 	# ---------------------------------------------------------------------]
 fi
 
-unset debians
-
 # ------------------------------------------------------------------------[ ls ]
 alias dl='ls -d {.*,*}/ -1'
 alias d='ls -d */ -1'
@@ -62,20 +59,20 @@ alias ll='ls -AlhF --group-directories-first'
 # -----------------------------------------------------------------------[ git ]
 [[ $(which git 2>/dev/null) ]] && {
 
-__PullAllGitHubs__() {
-	[[ -d ~/gitProjects/ ]] && {
-		pushd . >/dev/null;
-		cd ~/gitProjects/;
-	} || exit 1;
-	for d in $(ls -d */ -1)
-	do
-		echo "Getting into $d"; cd "$d";
-		echo "Pulling GitHub's data...";
-		git pull || break;
-		cd ..;
-	done;
-	popd >/dev/null;
-}
+	__PullAllGitHubs__() {
+		[[ -d ~/gitProjects/ ]] && {
+			pushd . >/dev/null;
+			cd ~/gitProjects/;
+		} || exit 1;
+		for d in $(ls -d */ -1)
+		do
+			echo "Getting into $d"; cd "$d";
+			echo "Pulling GitHub's data...";
+			git pull || break;
+			cd ..;
+		done;
+		popd >/dev/null;
+	}
 
 	alias ga='git add'
 	alias gb='git branch -a'
@@ -124,3 +121,4 @@ if [ ${VC:=0} -eq 0 ]; then
 fi
 # -----------------------------------------------------------------------------]
 
+unset debians
