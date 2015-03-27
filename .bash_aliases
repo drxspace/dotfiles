@@ -89,9 +89,9 @@ alias ll='ls -AlhF --group-directories-first'
 
 # ----------------------------------------------------------------------[ Misc ]
 
-if [[ ${DISTRO} =~ ${debians} ]]; then
-	#isins function
-fi
+# if [[ ${DISTRO} =~ ${debians} ]]; then
+# 	# isins function will go here
+# fi
 
 alias ..='cd ..'
 alias ...='cd ../..'
