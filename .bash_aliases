@@ -59,20 +59,20 @@ alias ll='ls -AlhF --group-directories-first'
 # -----------------------------------------------------------------------[ git ]
 [[ $(which git 2>/dev/null) ]] && {
 
-	__PullAllGitHubs__() {
-		[[ -d ~/gitProjects/ ]] && {
-			pushd . >/dev/null;
-			cd ~/gitProjects/;
-		} || exit 1;
-		for d in $(ls -d */ -1)
-		do
-			echo "Getting into $d"; cd "$d";
-			echo "Pulling GitHub's data...";
-			git pull || break;
-			cd ..;
-		done;
-		popd >/dev/null;
-	}
+__PullAllGitHubs__() {
+	[[ -d ~/gitProjects/ ]] && {
+		pushd . >/dev/null;
+		cd ~/gitProjects/;
+	} || exit 1;
+	for d in $(ls -d */ -1)
+	do
+		echo "Getting into $d"; cd "$d";
+		echo "Pulling GitHub's data...";
+		git pull || break;
+		cd ..;
+	done;
+	popd >/dev/null;
+}
 
 	alias ga='git add'
 	alias gb='git branch -a'
