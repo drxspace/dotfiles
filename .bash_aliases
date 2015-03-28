@@ -65,7 +65,6 @@ alias ll='ls -AlhF --group-directories-first'
 			cd "$HOME"/gitProjects/;
 		} || {
 			echo -e "\033[1;31mWARNING:\033[0m ‘gitProjects’ directory not found.";
-			exit 1;
 		}
 		for d in $(ls -d */ -1)
 		do
