@@ -60,10 +60,13 @@ alias ll='ls -AlhF --group-directories-first'
 [[ $(which git 2>/dev/null) ]] && {
 
 	__PullAllGitHubs__() {
-		[[ -d ~/gitProjects/ ]] && {
+		[[ -d "$HOME"/gitProjects/ ]] && {
 			pushd . >/dev/null;
-			cd ~/gitProjects/;
-		} || exit 1;
+			cd "$HOME"/gitProjects/;
+		} || {
+			echo -e "\033[1;31mWARNING:\033[0m ‘gitProjects’ directory not found.";
+			exit 1;
+		}
 		for d in $(ls -d */ -1)
 		do
 			echo "Getting into $d"; cd "$d";
