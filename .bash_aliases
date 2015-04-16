@@ -60,9 +60,10 @@ alias ll='ls -AlhF --group-directories-first'
 [[ $(which git 2>/dev/null) ]] && {
 
 	__PullAllGitHubs__() {
+		pushd . >/dev/null;
 		[[ -d "$HOME"/gitProjects/ ]] && {
-			pushd . >/dev/null;
 			cd "$HOME"/gitProjects/;
+			echo -e "\nI'm into gitProjects directory\n";
 			for d in $(ls -d */ -1)
 			do
 				echo "Getting into $d"; cd "$d";
@@ -70,8 +71,30 @@ alias ll='ls -AlhF --group-directories-first'
 				git pull || break;
 				cd ..;
 			done;
-			popd >/dev/null;
-		} || echo -e "\033[1;31mWARNING:\033[0m ‘gitProjects’ directory not found.";
+		}
+		[[ -d "$HOME"/gitPulls/ ]] && {
+			cd "$HOME"/gitPulls/;
+			echo -e "\nI'm into gitPulls directory\n";
+			for d in $(ls -d */ -1)
+			do
+				echo "Getting into $d"; cd "$d";
+				echo "Pulling GitHub's data...";
+				git pull || break;
+				cd ..;
+			done;
+		}
+		[[ -d "$HOME"/gitdirs/ ]] && {
+			cd "$HOME"/gitdirs/;
+			echo -e "\nI'm into gitdirs directory\n";
+			for d in $(ls -d */ -1)
+			do
+				echo "Getting into $d"; cd "$d";
+				echo "Pulling GitHub's data...";
+				git pull || break;
+				cd ..;
+			done;
+		}
+		popd >/dev/null;
 	}
 
 	alias ga='git add'
