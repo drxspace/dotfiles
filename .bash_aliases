@@ -61,9 +61,10 @@ alias ll='ls -AlhF --group-directories-first'
 
 	__PullAllGitHubs__() {
 		pushd . >/dev/null;
+		echo -e ":: \033[1mThe git repositories pulling process starts...\033[0m"
 		[[ -d "$HOME"/gitProjects/ ]] && {
 			cd "$HOME"/gitProjects/;
-			echo -e "\nI'm into gitProjects directory\n";
+			echo -e "\nI'm pulling the gitProjects directory...";
 			for d in $(ls -d */ -1)
 			do
 				echo "Getting into $d"; cd "$d";
@@ -74,7 +75,7 @@ alias ll='ls -AlhF --group-directories-first'
 		}
 		[[ -d "$HOME"/gitPulls/ ]] && {
 			cd "$HOME"/gitPulls/;
-			echo -e "\nI'm into gitPulls directory\n";
+			echo -e "\nI'm pulling the gitPulls directory...";
 			for d in $(ls -d */ -1)
 			do
 				echo "Getting into $d"; cd "$d";
@@ -85,7 +86,7 @@ alias ll='ls -AlhF --group-directories-first'
 		}
 		[[ -d "$HOME"/gitdirs/ ]] && {
 			cd "$HOME"/gitdirs/;
-			echo -e "\nI'm into gitdirs directory\n";
+			echo -e "\nI'm pulling the gitdirs directory...";
 			for d in $(ls -d */ -1)
 			do
 				echo "Getting into $d"; cd "$d";
@@ -94,6 +95,7 @@ alias ll='ls -AlhF --group-directories-first'
 				cd ..;
 			done;
 		}
+		echo -e "\n:: \033[1mThe git repositories pulling process finished.\033[0m"
 		popd >/dev/null;
 	}
 
