@@ -64,7 +64,7 @@ alias ll='ls -AlhF --group-directories-first'
 		echo -e ":: \033[1mThe git repositories pulling process starts...\033[0m"
 		[[ -d "$HOME"/gitProjects/ ]] && {
 			cd "$HOME"/gitProjects/;
-			echo -e "\nI'm pulling the gitProjects directory...";
+			echo -e "\nI'm pulling the gitProjects directories...\n";
 			for d in $(ls -d */ -1)
 			do
 				echo "Getting into $d"; cd "$d";
@@ -75,7 +75,7 @@ alias ll='ls -AlhF --group-directories-first'
 		}
 		[[ -d "$HOME"/gitPulls/ ]] && {
 			cd "$HOME"/gitPulls/;
-			echo -e "\nI'm pulling the gitPulls directory...";
+			echo -e "\nI'm pulling the gitPulls directories...\n";
 			for d in $(ls -d */ -1)
 			do
 				echo "Getting into $d"; cd "$d";
@@ -86,7 +86,7 @@ alias ll='ls -AlhF --group-directories-first'
 		}
 		[[ -d "$HOME"/gitdirs/ ]] && {
 			cd "$HOME"/gitdirs/;
-			echo -e "\nI'm pulling the gitdirs directory...";
+			echo -e "\nI'm pulling the gitdirs directories...\n";
 			for d in $(ls -d */ -1)
 			do
 				echo "Getting into $d"; cd "$d";
