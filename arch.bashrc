@@ -50,7 +50,8 @@ complete -cf sudo
 # http://www.tecmint.com/history-command-examples/
 export HISTCONTROL=ignoreboth
 
-if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
+#if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
+[[ $(which archey 2>/dev/null) ]] && archey
 
 unset VC
 
