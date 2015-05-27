@@ -51,7 +51,8 @@ complete -cf sudo
 export HISTCONTROL=ignoreboth
 
 #if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
-[[ $(which archey 2>/dev/null) ]] && archey
+# HTTPS clone URL: https://github.com/Manouchehri/archey.git
+if [[ $(which archey 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then archey; fi
 
 unset VC
 
