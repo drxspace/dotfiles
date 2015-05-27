@@ -122,9 +122,9 @@ if [ -d "$HOME/sbin" ] ; then
 fi
 export PATH
 
-#if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
+if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
 # HTTPS clone URL: https://github.com/Manouchehri/archey.git
-if [[ $(which archey 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then archey; fi
+#if [[ $(which archey 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then archey; fi
 
 unset VC
 
