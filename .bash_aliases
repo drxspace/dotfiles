@@ -73,9 +73,9 @@ alias ll='ls -AlhF --group-directories-first'
 				cd ..;
 			done;
 		}
-		[[ -d "$HOME"/gitPulls/ ]] && {
-			cd "$HOME"/gitPulls/;
-			echo -e "\nI'm pulling the gitPulls directories...\n";
+		[[ -d "$HOME"/gitClones/ ]] && {
+			cd "$HOME"/gitClones/;
+			echo -e "\nI'm pulling the gitClones directories...\n";
 			for d in $(ls -d */ -1)
 			do
 				echo "Getting into $d"; cd "$d";
