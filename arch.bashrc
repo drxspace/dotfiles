@@ -50,9 +50,9 @@ complete -cf sudo
 # http://www.tecmint.com/history-command-examples/
 export HISTCONTROL=ignoreboth
 
-#if [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
 # HTTPS clone URL: https://github.com/Manouchehri/archey.git
-if [[ $(which archey 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then archey; fi
+if [[ $(which archey 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then archey;
+elif [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
 
 unset VC
 
