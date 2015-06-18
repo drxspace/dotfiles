@@ -94,7 +94,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Reset the keyboard repeat rate and delay time
-[[ $EUID -eq 0 ]] && kbdrate -s -r 22.0 -d 640
+[[ -t 0 ]] && kbdrate -s -r 22.0 -d 640
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
