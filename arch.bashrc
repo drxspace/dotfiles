@@ -21,6 +21,9 @@ if [[ $VC -eq 0 ]] && [[ -x /usr/bin/dircolors ]] ; then
     alias egrep='egrep --color=auto'
 fi
 
+# Reset the keyboard repeat rate and delay time
+[[ $EUID -eq 0 ]] && kbdrate -s -r 22.0 -d 640
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.

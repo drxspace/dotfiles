@@ -93,6 +93,9 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# Reset the keyboard repeat rate and delay time
+[[ $EUID -eq 0 ]] && kbdrate -s -r 22.0 -d 640
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -129,6 +132,3 @@ elif [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cows
 unset VC
 
 #export EDITOR=/usr/bin/vim.nox
-
-# Betty Assitant
-#[[ -f "$HOME/betty/main.rb" ]] && alias betty="$HOME/betty/main.rb"
