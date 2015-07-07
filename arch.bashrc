@@ -22,7 +22,7 @@ if [[ $VC -eq 0 ]] && [[ -x /usr/bin/dircolors ]] ; then
 fi
 
 # Reset the keyboard repeat rate and delay time
-[[ -t 0 ]] && [[ $EUID -eq 0 ]] && kbdrate -s -r 22.0 -d 640
+[[ ${VC:=0} -ne 0 ]] && [[ $EUID -eq 0 ]] && kbdrate -s -r 22.0 -d 640
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
