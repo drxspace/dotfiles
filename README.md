@@ -4,40 +4,40 @@ Linux - user startup scripts
 Debian/Ubuntu distros
 ---------------------
 ```bash
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bashrc
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.profile'
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bashrc
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.profile'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
 
 ```
 
 Arch distros
 ------------
 ```bash
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/arch.bashrc' -O .bashrc
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.profile'
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/arch.bashrc' -O .bashrc
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.profile'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
 
 ```
 
 Fedora distros
 --------------
 ```bash
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bashrc
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.profile' -O .bash_profile
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bashrc
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.profile' -O .bash_profile
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
 
 ```
 
 OpenSUSE distros
 ----------------
 ```bash
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bashrc
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' -O .alias
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.profile'
-wget -qr 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bashrc
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' -O .alias
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.profile'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
 
 ```
 
