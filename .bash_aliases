@@ -67,7 +67,7 @@ alias ll='ls -AlhF --group-directories-first'
 			echo -e "\n\033[1mI'm pulling the gitProjects directories...\033[0m\n";
 			for d in $(ls -d */ -1)
 			do
-				echo "Getting into $d"; cd "$d";
+				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
 				echo "Pulling GitHub's data...";
 				git pull || break;
 				cd ..;
@@ -78,7 +78,7 @@ alias ll='ls -AlhF --group-directories-first'
 			echo -e "\n\033[1mI'm pulling the gitClones directories...\033[0m\n";
 			for d in $(ls -d */ -1)
 			do
-				echo "Getting into $d"; cd "$d";
+				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
 				echo "Pulling GitHub's data...";
 				git pull || break;
 				cd ..;
@@ -89,7 +89,7 @@ alias ll='ls -AlhF --group-directories-first'
 			echo -e "\n\033[1mI'm pulling the gitdirs directories...\033[0m\n";
 			for d in $(ls -d */ -1)
 			do
-				echo "Getting into $d"; cd "$d";
+				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
 				echo "Pulling GitHub's data...";
 				git pull || break;
 				cd ..;
