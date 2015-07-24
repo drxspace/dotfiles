@@ -62,7 +62,7 @@ alias ll='ls -AlhF --group-directories-first'
 	__PullAllGitHubs__() {
 		pushd . >/dev/null;
 		echo -e ":: \033[1mThe git repositories pulling process starts...\033[0m"
-		[[ -d "$HOME"/gitProjects/ ]] && {
+		[[ -d "$HOME"/gitProjects/ ]] && [[ "$1" = "-p" ]] || [[ "$1" = "" ]] && {
 			cd "$HOME"/gitProjects/;
 			echo -e "\n\033[1mI'm pulling the gitProjects directories...\033[0m\n";
 			for d in $(ls -d */ -1)
@@ -73,7 +73,7 @@ alias ll='ls -AlhF --group-directories-first'
 				cd ..;
 			done;
 		}
-		[[ -d "$HOME"/gitClones/ ]] && {
+		[[ -d "$HOME"/gitClones/ ]] && [[ "$1" = "-c" ]] || [[ "$1" = "" ]] && {
 			cd "$HOME"/gitClones/;
 			echo -e "\n\033[1mI'm pulling the gitClones directories...\033[0m\n";
 			for d in $(ls -d */ -1)
@@ -84,7 +84,7 @@ alias ll='ls -AlhF --group-directories-first'
 				cd ..;
 			done;
 		}
-		[[ -d "$HOME"/gitdirs/ ]] && {
+		[[ -d "$HOME"/gitdirs/ ]] && [[ "$1" = "-d" ]] || [[ "$1" = "" ]] && {
 			cd "$HOME"/gitdirs/;
 			echo -e "\n\033[1mI'm pulling the gitdirs directories...\033[0m\n";
 			for d in $(ls -d */ -1)
@@ -115,9 +115,10 @@ alias ll='ls -AlhF --group-directories-first'
 
 # ----------------------------------------------------------------------[ Misc ]
 
-# if [[ ${DISTRO} =~ ${debians} ]]; then
-# 	# isins function will go here
-# fi
+if [[ ${DISTRO} =~ ${debians} ]]; then
+	# isins function will go here
+	:
+fi
 
 alias ..='cd ..'
 alias ...='cd ../..'
