@@ -44,34 +44,34 @@ wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
 Debian/Ubuntu distros (alter way)
 ---------------------------------
 ```bash
-cd $HOME
-mkdir -pv $HOME/gitdirs
+cd "${HOME}"
+mkdir -pv "${HOME}"/gitDirs
 ________________________________________________________________________________
 
-cd $HOME/gitdirs
+cd "${HOME}"/gitDirs
 git clone https://github.com/drxspace/nautilus-scripts.git
 
-ln -sfv $HOME/gitdirs/nautilus-scripts/1253utf-8 $HOME/.local/share/nautilus/scripts/1253utf-8
-ln -sfv $HOME/gitdirs/nautilus-scripts/minScript $HOME/.local/share/nautilus/scripts/minScript
-ln -sfv $HOME/gitdirs/nautilus-scripts/OpenAsRoot $HOME/.local/share/nautilus/scripts/OpenAsRoot
-ln -sfv $HOME/gitdirs/nautilus-scripts/TerminalHere $HOME/.local/share/nautilus/scripts/TerminalHere
-ln -sfv $HOME/gitdirs/nautilus-scripts/TerminatorHere $HOME/.local/share/nautilus/scripts/TerminatorHere
+ln -sfv "${HOME}"/gitDirs/nautilus-scripts/1253utf-8 "${HOME}"/.local/share/nautilus/scripts/1253utf-8
+ln -sfv "${HOME}"/gitDirs/nautilus-scripts/minScript "${HOME}"/.local/share/nautilus/scripts/minScript
+ln -sfv "${HOME}"/gitDirs/nautilus-scripts/OpenAsRoot "${HOME}"/.local/share/nautilus/scripts/OpenAsRoot
+ln -sfv "${HOME}"/gitDirs/nautilus-scripts/TerminalHere "${HOME}"/.local/share/nautilus/scripts/TerminalHere
+ln -sfv "${HOME}"/gitDirs/nautilus-scripts/TerminatorHere "${HOME}"/.local/share/nautilus/scripts/TerminatorHere
 
-chmod 775 $HOME/.local/share/nautilus/scripts/*
+chmod 775 "${HOME}"/.local/share/nautilus/scripts/*
 ________________________________________________________________________________
 
-cd $HOME/gitdirs
+cd "${HOME}"/gitDirs
 git clone https://github.com/drxspace/dotfiles.git
 
-ln -sfv $HOME/gitdirs/dotfiles/deb.bashrc $HOME/.bashrc
-ln -sfv $HOME/gitdirs/dotfiles/.bash_aliases $HOME/.bash_aliases
-ln -sfv $HOME/gitdirs/dotfiles/.profile $HOME/.profile
-ln -sfv $HOME/gitdirs/dotfiles/.dircolors $HOME/.dircolors
+ln -sfv "${HOME}"/gitDirs/dotfiles/deb.bashrc "${HOME}"/.bashrc
+ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases "${HOME}"/.bash_aliases
+ln -sfv "${HOME}"/gitDirs/dotfiles/.profile "${HOME}"/.profile
+ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors "${HOME}"/.dircolors
 
 sudo sh -c '
-ln -sfv $HOME/gitdirs/dotfiles/deb.bashrc /root/.bashrc
-ln -sfv $HOME/gitdirs/dotfiles/.bash_aliases /root/.bash_aliases
-ln -sfv $HOME/gitdirs/dotfiles/.profile /root/.profile
-ln -sfv $HOME/gitdirs/dotfiles/.dircolors /root/.dircolors
+	ln -sfv "${HOME}"/gitDirs/dotfiles/deb.bashrc /root/.bashrc
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases /root/.bash_aliases
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.profile /root/.profile
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors /root/.dircolors
 '
 ```
