@@ -50,6 +50,7 @@ ________________________________________________________________________________
 
 cd "${HOME}"/gitDirs
 git clone https://github.com/drxspace/nautilus-scripts.git
+cd "${HOME}"
 
 ln -sfv "${HOME}"/gitDirs/nautilus-scripts/1253utf-8 "${HOME}"/.local/share/nautilus/scripts/1253utf-8
 ln -sfv "${HOME}"/gitDirs/nautilus-scripts/minScript "${HOME}"/.local/share/nautilus/scripts/minScript
@@ -62,16 +63,18 @@ ________________________________________________________________________________
 
 cd "${HOME}"/gitDirs
 git clone https://github.com/drxspace/dotfiles.git
+cd "${HOME}"
 
 ln -sfv "${HOME}"/gitDirs/dotfiles/deb.bashrc "${HOME}"/.bashrc
 ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases "${HOME}"/.bash_aliases
 ln -sfv "${HOME}"/gitDirs/dotfiles/.profile "${HOME}"/.profile
 ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors "${HOME}"/.dircolors
 
-sudo sh -c '
+sudo -E sh -c '
 	ln -sfv "${HOME}"/gitDirs/dotfiles/deb.bashrc /root/.bashrc
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases /root/.bash_aliases
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.profile /root/.profile
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors /root/.dircolors
 '
+
 ```
