@@ -84,9 +84,9 @@ alias ll='ls -AlhF --group-directories-first'
 				cd ..;
 			done;
 		}
-		[[ -d "$HOME"/gitdirs/ ]] && [[ "$1" = "-d" ]] || [[ "$1" = "" ]] && {
-			cd "$HOME"/gitdirs/;
-			echo -e "\n\033[1mI'm pulling the gitdirs directories...\033[0m\n";
+		[[ -d "$HOME"/gitDirs/ ]] && [[ "$1" = "-d" ]] || [[ "$1" = "" ]] && {
+			cd "$HOME"/gitDirs/;
+			echo -e "\n\033[1mI'm pulling the gitDirs directories...\033[0m\n";
 			for d in $(ls -d */ -1)
 			do
 				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
