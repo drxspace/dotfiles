@@ -44,7 +44,6 @@ if [[ $EUID -eq 0 ]]; then
 	# ---------------------------------------------------------------------]
 
 	# --------------------------------------------------------------[ Misc ]
-	alias blkid='blkid | sort'
 	alias rm='rm -i'
 	# ---------------------------------------------------------------------]
 fi
@@ -123,6 +122,7 @@ fi
 
 alias ..='cd ..'
 alias ...='cd ../..'
+alias blkid='sudo blkid | sort'
 [[ $(which bleachbit 2>/dev/null) ]] && alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
 [[ $(which colordiff 2>/dev/null) ]] && alias diff='colordiff'
 alias distro='echo ${DISTRO}'
