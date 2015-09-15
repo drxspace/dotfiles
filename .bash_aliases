@@ -23,11 +23,11 @@ if [[ $EUID -eq 0 ]]; then
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "fedora" ]]; then
-		# -------------------------------------------------------[ yum ]
-		alias ycc='yum autoremove ; yum clean all'
-		alias yin='yum install'
-		alias yug='yum check-update ; yum upgrade --skip-broken'
-		alias yup='yum check-update ; yum update --skip-broken'
+		# -------------------------------------------------------[ dnf ]
+		alias dcc='dnf autoremove ; dnf clean all'
+		alias din='dnf install'
+		alias dug='dnf check-update ; dnf upgrade --skip-broken'
+		alias dup='dnf check-update ; dnf update --skip-broken'
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
