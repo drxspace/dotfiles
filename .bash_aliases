@@ -26,8 +26,8 @@ if [[ $EUID -eq 0 ]]; then
 		# -------------------------------------------------------[ dnf ]
 		alias dcc='dnf autoremove ; dnf clean all'
 		alias din='dnf install'
-		alias dug='dnf check-update ; dnf upgrade --skip-broken'
-		alias dup='dnf check-update ; dnf update --skip-broken'
+		alias dug='dnf check-update ; dnf upgrade'
+		alias dup='dnf check-update ; dnf update'
 		# -------------------------------------------------------------]
 	elif [[ "${DISTRO}" == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
