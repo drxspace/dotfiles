@@ -122,6 +122,9 @@ fi
 
 alias ..='cd ..'
 alias ...='cd ../..'
+alias cp='cp -v'
+alias mv='mv -v'
+alias mkdir='mkdir -v'
 alias blkid='sudo blkid | sort'
 [[ $(which bleachbit 2>/dev/null) ]] && alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
 [[ $(which colordiff 2>/dev/null) ]] && alias diff='colordiff'
