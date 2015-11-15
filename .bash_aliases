@@ -53,7 +53,7 @@ alias dl='ls -d {.*,*}/ -1'
 alias d='ls -d */ -1'
 alias lf='ls -1Ap | grep -v /$'
 alias lia='ls -lia'
-alias ll='ls -AlhF --group-directories-first'
+alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 # -----------------------------------------------------------------------------]
 
 # -----------------------------------------------------------------------[ git ]
