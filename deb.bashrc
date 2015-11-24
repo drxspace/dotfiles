@@ -116,14 +116,15 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -z $(grep "$HOME/bin" <<< $PATH) ] && [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
+    export PATH
 fi
 # set PATH so it includes user's private sbin if it exists
-if [ -d "$HOME/sbin" ] ; then
+if [ -z $(grep "$HOME/bin" <<< $PATH) ] && [ -d "$HOME/sbin" ] ; then
     PATH="$HOME/sbin:$PATH"
+    export PATH
 fi
-export PATH
 
 # HTTPS clone URL: https://github.com/Manouchehri/archey.git
 if [[ $(which archey 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then archey;

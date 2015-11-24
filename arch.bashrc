@@ -33,14 +33,15 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -z $(grep "$HOME/bin" <<< $PATH) ] && [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
+    export PATH
 fi
 # set PATH so it includes user's private sbin if it exists
-if [ -d "$HOME/sbin" ] ; then
+if [ -z $(grep "$HOME/bin" <<< $PATH) ] && [ -d "$HOME/sbin" ] ; then
     PATH="$HOME/sbin:$PATH"
+    export PATH
 fi
-export PATH
 
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
