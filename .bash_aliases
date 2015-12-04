@@ -111,6 +111,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 	alias grm='git rm'
 	alias gs='git status'
 	alias gull='git pull'
+	alias gundo='git reset --hard'
 	alias gush='git push'
 }
 # -----------------------------------------------------------------------------]
