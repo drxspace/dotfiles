@@ -47,19 +47,7 @@ Debian/Ubuntu distros (alter way)
 cd "${HOME}"
 mkdir -pv "${HOME}"/gitDirs
 cd "${HOME}"/gitDirs
-git clone https://github.com/drxspace/nautilus-scripts.git
 git clone https://github.com/drxspace/dotfiles.git
-cd "${HOME}"
-________________________________________________________________________________
-
-ln -sfv "${HOME}"/gitDirs/nautilus-scripts/1253utf-8 "${HOME}"/.local/share/nautilus/scripts/1253utf-8
-ln -sfv "${HOME}"/gitDirs/nautilus-scripts/minScript "${HOME}"/.local/share/nautilus/scripts/minScript
-ln -sfv "${HOME}"/gitDirs/nautilus-scripts/OpenAsRoot "${HOME}"/.local/share/nautilus/scripts/OpenAsRoot
-ln -sfv "${HOME}"/gitDirs/nautilus-scripts/TerminalHere "${HOME}"/.local/share/nautilus/scripts/TerminalHere
-ln -sfv "${HOME}"/gitDirs/nautilus-scripts/TerminatorHere "${HOME}"/.local/share/nautilus/scripts/TerminatorHere
-chmod 775 "${HOME}"/.local/share/nautilus/scripts/*
-
-________________________________________________________________________________
 
 ln -sfv "${HOME}"/gitDirs/dotfiles/deb.bashrc "${HOME}"/.bashrc
 ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases "${HOME}"/.bash_aliases
