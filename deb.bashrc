@@ -121,7 +121,7 @@ if [ -z $(grep "$HOME/bin" <<< $PATH) ] && [ -d "$HOME/bin" ] ; then
     export PATH
 fi
 # set PATH so it includes user's private sbin if it exists
-if [ -z $(grep "$HOME/bin" <<< $PATH) ] && [ -d "$HOME/sbin" ] ; then
+if [ -z $(grep "$HOME/sbin" <<< $PATH) ] && [ -d "$HOME/sbin" ] ; then
     PATH="$HOME/sbin:$PATH"
     export PATH
 fi
