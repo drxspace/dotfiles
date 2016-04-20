@@ -125,6 +125,10 @@ fi
 
 alias ..='cd ..'
 alias ...='cd ../..'
+__BrokenLinks__() {
+	sudo find . -mount -type l -exec sh -c 'file -b "{}" | grep -q ^broken' \; -print
+}
+alias brokln='__BrokenLinks__'
 alias cp='cp -v'
 alias mv='mv -v'
 alias mkdir='mkdir -v'
@@ -136,7 +140,7 @@ alias distro='echo ${DISTRO}'
 alias ka='killall'
 alias kbd='sudo kbdrate -s -r 22.0 -d 640'
 [[ $(which gnome-session-quit 2>/dev/null) ]] && alias logoff='gnome-session-quit'
-alias MyFiles='sudo chown -R $(id -un):$(id -gn)'
+alias MyFiles='chown -R $(id -un):$(id -gn) 2>/dev/null'
 alias Gods='sudo chown -R root:root'
 [[ $(which speedtest_cli 2>/dev/null) ]] && alias inetspeed='$(which speedtest_cli)'
 alias noless='grep -Ev '\''^(#|$)'\'''
