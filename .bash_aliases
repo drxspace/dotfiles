@@ -119,8 +119,10 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 # ----------------------------------------------------------------------[ Misc ]
 
 if [[ ${DISTRO} =~ ${debians} ]]; then
-	# isins function will go here
-	:
+	__IsInstalled__() {
+		aptitude search $1 | awk 'BEGIN { app="" } /^i/ { if ($2 != "A") app=app$2" ";  } END { print app }'
+	}
+	alias isins='__IsInstalled__'
 fi
 
 alias ..='cd ..'
