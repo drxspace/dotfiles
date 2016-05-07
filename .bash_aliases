@@ -9,27 +9,39 @@
 #
 
 # --------------------------------------------------------------------[ global ]
-DISTRO=$(cat /etc/*release 2>/dev/null | awk -F'=' '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
+__DISTRO__=$(cat /etc/*release 2>/dev/null | awk -F'=' '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
 # -----------------------------------------------------------------------------]
 
-debians="debian|ubuntu|netrunner|elementary os"
+__DEBIANS__="debian|ubuntu|netrunner|elementary os"
+
+if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
+	__IsInstalled__() {
+		aptitude search $1 | awk 'BEGIN { app="" }
+					 /^i/ { if ($2 != "A") app=app$2" ";  }
+					 END { if (length(app) != 0) print app }'
+	}
+	__ExPurge__() {
+		apt-get autoremove --purge $(__IsInstalled__ $1)
+	}
+fi
 
 if [[ $EUID -eq 0 ]]; then
-	if [[ ${DISTRO} =~ ${debians} ]]; then
+	if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
 		# -------------------------------------------------------[ apt ]
 		alias aptins='apt-get install'
 		alias aptprg='apt-get autoremove --purge'
 		alias aptrns='apt-get install --purge --reinstall'
+		alias expurge='__ExPurge__'
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
-	elif [[ "${DISTRO}" == "fedora" ]]; then
+	elif [[ "${__DISTRO__}" == "fedora" ]]; then
 		# -------------------------------------------------------[ dnf ]
 		alias dcc='dnf autoremove ; dnf clean all'
 		alias din='dnf install'
 		alias dug='dnf check-update ; dnf upgrade'
 		alias dup='dnf check-update ; dnf update'
 		# -------------------------------------------------------------]
-	elif [[ "${DISTRO}" == "opensuse" ]]; then
+	elif [[ "${__DISTRO__}" == "opensuse" ]]; then
 		# ----------------------------------------------------[ zypper ]
 		alias zcc='zypper clean -a'
 		alias zef='zypper refresh'
@@ -118,10 +130,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 
 # ----------------------------------------------------------------------[ Misc ]
 
-if [[ ${DISTRO} =~ ${debians} ]]; then
-	__IsInstalled__() {
-		aptitude search $1 | awk 'BEGIN { app="" } /^i/ { if ($2 != "A") app=app$2" ";  } END { print app }'
-	}
+if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
 	alias isins='__IsInstalled__'
 fi
 
@@ -138,7 +147,7 @@ alias blkid='sudo blkid | sort'
 [[ $(which bleachbit 2>/dev/null) ]] && alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
 [[ $(which colordiff 2>/dev/null) ]] && alias diff='colordiff'
 alias diffbr='diff --brief -r'
-alias distro='echo ${DISTRO}'
+alias distro='echo ${__DISTRO__}'
 alias ka='killall'
 alias kbd='sudo kbdrate -s -r 22.0 -d 640'
 [[ $(which gnome-session-quit 2>/dev/null) ]] && alias logoff='gnome-session-quit'
@@ -151,7 +160,7 @@ alias shutup='sudo shutdown -h now'
 alias srch='sudo find / -mount -iname'
 alias S='sudo'
 [[ $(which youtube-dl 2>/dev/null) ]] && {
-	alias ted='youtube-dl -q --console-title -o "%(title)s.%(ext)s" --write-sub --sub-lang "en,el"'
+	alias vdu2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" --write-sub --sub-lang "en,el"'
 	alias you2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
 }
 alias tmount='mount | column -t'
@@ -169,4 +178,4 @@ if [ ${VC:=0} -eq 0 ]; then
 fi
 # -----------------------------------------------------------------------------]
 
-unset debians
+unset __DEBIANS__
