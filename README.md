@@ -62,3 +62,26 @@ sudo -E sh -c '
 '
 
 ```
+
+Arch distros (alter way)
+------------------------
+```bash
+cd "${HOME}"
+mkdir -pv "${HOME}"/gitDirs
+cd "${HOME}"/gitDirs
+git clone https://github.com/drxspace/dotfiles.git
+
+ln -sfv "${HOME}"/gitDirs/dotfiles/arch.bashrc "${HOME}"/.bashrc
+ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases "${HOME}"/.bash_aliases
+ln -sfv "${HOME}"/gitDirs/dotfiles/.profile "${HOME}"/.profile
+ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors "${HOME}"/.dircolors
+
+sudo -E sh -c '
+	ln -sfv "${HOME}"/gitDirs/dotfiles/arch.bashrc /root/.bashrc
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases /root/.bash_aliases
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.profile /root/.profile
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors /root/.dircolors
+'
+
+```
+
