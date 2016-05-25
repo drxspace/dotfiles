@@ -80,6 +80,8 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 			for d in $(ls -d */ -1)
 			do
 				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
+				echo "Cleaning the repository...";
+				git clean -d -f || break;
 				echo "Pulling GitHub's data...";
 				git pull || break;
 				cd ..;
@@ -91,6 +93,8 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 			for d in $(ls -d */ -1)
 			do
 				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
+				echo "Cleaning the repository...";
+				git clean -d -f || break;
 				echo "Pulling GitHub's data...";
 				git pull || break;
 				cd ..;
@@ -101,6 +105,8 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 			echo -e "\n\033[1mI'm pulling the gitDirs directories...\033[0m\n";
 			for d in $(ls -d */ -1)
 			do
+				echo "Cleaning the repository...";
+				git clean -d -f || break;
 				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
 				echo "Pulling GitHub's data...";
 				git pull || break;
