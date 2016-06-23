@@ -21,16 +21,16 @@ if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
 					 END { if (length(app) != 0) print app }'
 	}
 	__ExPurge__() {
-		apt-get autoremove --purge $(__IsInstalled__ $1)
+		apt autoremove --purge $(__IsInstalled__ $1)
 	}
 fi
 
 if [[ $EUID -eq 0 ]]; then
 	if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
 		# -------------------------------------------------------[ apt ]
-		alias aptins='apt-get install'
-		alias aptprg='apt-get autoremove --purge'
-		alias aptrns='apt-get install --purge --reinstall'
+		alias aptins='apt install'
+		alias aptprg='apt autoremove --purge'
+		alias aptrns='apt install --purge --reinstall'
 		alias expurge='__ExPurge__'
 		alias upall='updt -q ; aptclr ; orphclr'
 		# -------------------------------------------------------------]
