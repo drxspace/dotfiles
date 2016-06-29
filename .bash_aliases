@@ -20,14 +20,14 @@ if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
 					 /^i/ { if ($2 != "A") app=app$2" ";  }
 					 END { if (length(app) != 0) print app }'
 	}
-	__ExPurge__() {
-		apt autoremove --purge $(__IsInstalled__ $1)
-	}
 fi
 
 if [[ $EUID -eq 0 ]]; then
 	if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
 		# -------------------------------------------------------[ apt ]
+		__ExPurge__() {
+			apt autoremove --purge $(__IsInstalled__ ${1})
+		}
 		alias aptins='apt install'
 		alias aptprg='apt autoremove --purge'
 		alias aptrns='apt install --purge --reinstall'
@@ -79,7 +79,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 			echo -e "\n\033[1mI'm pulling the gitProjects directories...\033[0m\n";
 			for d in $(ls -d */ -1)
 			do
-				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
+				echo -e "\033[1mGetting into ${d}\033[0m"; cd "${d}";
 				echo "Pulling GitHub's data...";
 				git pull || break;
 				echo "Cleaning the repository...";
@@ -92,7 +92,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 			echo -e "\n\033[1mI'm pulling the gitClones directories...\033[0m\n";
 			for d in $(ls -d */ -1)
 			do
-				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
+				echo -e "\033[1mGetting into ${d}\033[0m"; cd "${d}";
 				echo "Pulling GitHub's data...";
 				git pull || break;
 				echo "Cleaning the repository...";
@@ -105,7 +105,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 			echo -e "\n\033[1mI'm pulling the gitDirs directories...\033[0m\n";
 			for d in $(ls -d */ -1)
 			do
-				echo -e "\033[1mGetting into $d\033[0m"; cd "$d";
+				echo -e "\033[1mGetting into ${d}\033[0m"; cd "${d}";
 				echo "Pulling GitHub's data...";
 				git pull || break;
 				echo "Cleaning the repository...";
