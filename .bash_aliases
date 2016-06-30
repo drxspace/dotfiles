@@ -48,6 +48,11 @@ if [[ $EUID -eq 0 ]]; then
 		alias zud='zypper dist-upgrade'
 		alias zup='zypper update'
 		# -------------------------------------------------------------]
+	elif [[ "${__DISTRO__}" == "arch" ]]; then
+		# ----------------------------------------------------[ pacman ]
+		alias archall='yup ; ycc'
+		alias archun='pacman -Rsun'
+		# -------------------------------------------------------------]
 	fi
 
 	# --------------------------------------------------------[ Networking ]
