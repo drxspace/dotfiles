@@ -12,7 +12,10 @@
 __DISTRO__=$(cat /etc/*release 2>/dev/null | awk -F'=' '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro) }')
 # -----------------------------------------------------------------------------]
 
+# ---------------------------------------------------------------------[ local ]
 __DEBIANS__="debian|ubuntu|netrunner|elementary os"
+__ARCHES__="arch|apricity"
+# -----------------------------------------------------------------------------]
 
 if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
 	__IsInstalled__() {
@@ -48,7 +51,7 @@ if [[ $EUID -eq 0 ]]; then
 		alias zud='zypper dist-upgrade'
 		alias zup='zypper update'
 		# -------------------------------------------------------------]
-	elif [[ "${__DISTRO__}" == "arch" ]]; then
+	elif [[ "${__DISTRO__}" =~ ${__ARCHES__} ]]; then
 		# ----------------------------------------------------[ pacman ]
 		alias archall='yup ; ycc'
 		alias archun='pacman -Rsun'
@@ -192,3 +195,4 @@ fi
 # -----------------------------------------------------------------------------]
 
 unset __DEBIANS__
+unset __ARCHES__
