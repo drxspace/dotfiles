@@ -13,7 +13,7 @@ __DISTRO__=$(cat /etc/*release 2>/dev/null | awk -F'=' '/^ID=/ { thisdistro=$2; 
 # -----------------------------------------------------------------------------]
 
 # ---------------------------------------------------------------------[ local ]
-__DEBIANS__="debian|ubuntu|netrunner|elementary os"
+__DEBIANS__="debian|ubuntu|netrunner|elementary os|zorin os"
 __ARCHES__="arch|apricity"
 # -----------------------------------------------------------------------------]
 
