@@ -8,6 +8,7 @@ wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bash
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.profile'
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.nanorc'
 
 ```
 
@@ -18,6 +19,8 @@ wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/arch.bashrc' -O .bas
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.profile'
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.nanorc'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.yaourtrc'
 
 ```
 
@@ -28,6 +31,7 @@ wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bash
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases'
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.profile' -O .bash_profile
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.nanorc'
 
 ```
 
@@ -38,6 +42,7 @@ wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/deb.bashrc' -O .bash
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.bash_aliases' -O .alias
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.profile'
 wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.dircolors'
+wget -q -N 'https://raw.github.com/drxspace/dotfiles/master/.nanorc'
 
 ```
 
@@ -53,12 +58,14 @@ ln -sfv "${HOME}"/gitDirs/dotfiles/deb.bashrc "${HOME}"/.bashrc
 ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases "${HOME}"/.bash_aliases
 ln -sfv "${HOME}"/gitDirs/dotfiles/.profile "${HOME}"/.profile
 ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors "${HOME}"/.dircolors
+ln -sfv "${HOME}"/gitDirs/dotfiles/.nanorc "${HOME}"/.nanorc
 
 sudo -E sh -c '
 	ln -sfv "${HOME}"/gitDirs/dotfiles/deb.bashrc /root/.bashrc
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases /root/.bash_aliases
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.profile /root/.profile
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors /root/.dircolors
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.nanorc /root/.nanorc
 '
 
 ```
@@ -75,12 +82,16 @@ ln -sfv "${HOME}"/gitDirs/dotfiles/arch.bashrc "${HOME}"/.bashrc
 ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases "${HOME}"/.bash_aliases
 ln -sfv "${HOME}"/gitDirs/dotfiles/.profile "${HOME}"/.profile
 ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors "${HOME}"/.dircolors
+ln -sfv "${HOME}"/gitDirs/dotfiles/.nanorc "${HOME}"/.nanorc
+ln -sfv "${HOME}"/gitDirs/dotfiles/.nanorc "${HOME}"/.yaourtrc
 
 sudo -E sh -c '
 	ln -sfv "${HOME}"/gitDirs/dotfiles/arch.bashrc /root/.bashrc
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.bash_aliases /root/.bash_aliases
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.profile /root/.profile
 	ln -sfv "${HOME}"/gitDirs/dotfiles/.dircolors /root/.dircolors
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.nanorc /root/.nanorc
+	ln -sfv "${HOME}"/gitDirs/dotfiles/.nanorc /root/.yaourtrc
 '
 
 ```
