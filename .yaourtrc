@@ -9,8 +9,15 @@ EDITOR="gvim --nofork"	# Define the editor to use
 
 # AUR OPTIONS
 AURCOMMENT=2		# Show X last comments for packages built from AUR
+AURUPGRADE=1		# If set to 1, always search for new version of packages installed from AUR
 
 # PROMPT OPTIONS
 #UP_NOCONFIRM=0		# No prompt while build upgrades (including -Sbu)
-#			# If set to 1, do not prompt for AUR or build upgrades
+			# If set to 1, do not prompt for AUR or build upgrades
 BUILD_NOCONFIRM=1	# If set to 1, do not prompt while building. Only prompt for editing files
+
+# OUTPUT OPTIONS
+SHOWORPHANS=0		# If set to 0, search for orphans
+
+# COMMAND OPTIONS
+DIFFEDITCMD="colordiff"	# Define the diff editor to use
