@@ -1,0 +1,23 @@
+.nautilus-canvas-item {
+	border-radius: 4px;
+}
+.nautilus-desktop.nautilus-canvas-item {
+	color: @bg_color;
+	text-shadow: 1 1 alpha(#000000, 0.8);
+}
+.nautilus-desktop.nautilus-canvas-item:active {
+	margin: 1px;
+	margin-top: 2px;
+	padding: 2px;
+}
+.nautilus-desktop.nautilus-canvas-item:selected {
+	margin: 1px;
+	margin-top: 2px;
+	padding: 2px;
+	color: @selected_fg_color;
+}
+.nautilus-desktop.nautilus-canvas-item:active,
+.nautilus-desktop.nautilus-canvas-item:prelight,
+.nautilus-desktop.nautilus-canvas-item:selected {
+	text-shadow: none;
+}
