@@ -2,7 +2,7 @@
 	border-radius: 4px;
 }
 .nautilus-desktop.nautilus-canvas-item {
-	color: @bg_color;
+	color: #ffffff;
 	text-shadow: 1 1 alpha(#000000, 0.8);
 }
 .nautilus-desktop.nautilus-canvas-item:active,
@@ -13,7 +13,7 @@
 	padding: 2px;
 	text-shadow: none;
 }
-.nautilus-desktop.nautilus-canvas-item:selected {
+/*.nautilus-desktop.nautilus-canvas-item:selected {
 	background-color: alpha(@selected_bg_color, 0.7);
-/*	color: @selected_fg_color;*/
-}
+	color: @selected_fg_color;
+}*/
