@@ -3,10 +3,10 @@
 }
 .nautilus-desktop.nautilus-canvas-item {
 	color: #ffffff;
-	text-shadow: 1 1 alpha(#000000, 0.8);
+	text-shadow: 1px 1px alpha(#000000, 0.8);
 }
 .nautilus-desktop.nautilus-canvas-item:active,
-.nautilus-desktop.nautilus-canvas-item:prelight,
+.nautilus-desktop.nautilus-canvas-item:hover,
 .nautilus-desktop.nautilus-canvas-item:selected {
 	margin: 1px;
 	margin-top: 2px;
