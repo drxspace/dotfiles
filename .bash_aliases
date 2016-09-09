@@ -13,7 +13,7 @@ __DISTRO__=$(awk -F'=' '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro
 # -----------------------------------------------------------------------------]
 
 # ---------------------------------------------------------------------[ local ]
-__DEBIANS__="debian|ubuntu|netrunner|elementary os|zorin os"
+__DEBIANS__="debian|ubuntu|linuxmint|netrunner|elementary os|zorin os"
 __ARCHES__="arch|manjaro|apricity"
 # -----------------------------------------------------------------------------]
 
