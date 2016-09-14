@@ -9,12 +9,12 @@
 #
 
 # --------------------------------------------------------------------[ global ]
-__DISTRO__=$(awk -F'=' '/^ID=/ { thisdistro=$2; } END { print tolower(thisdistro) }' /etc/*release 2>/dev/null)
+__DISTRO__=$(sed -n '/^ID=/s/ID=//p' /etc/*release 2>/dev/null)
 # -----------------------------------------------------------------------------]
 
 # ---------------------------------------------------------------------[ local ]
-__DEBIANS__="debian|ubuntu|linuxmint|netrunner|elementary os|zorin os"
-__ARCHES__="arch|manjaro|apricity"
+__DEBIANS__="debian|ubuntu|linuxmint|netrunner|elementary|zorin os"
+__ARCHES__="arch|antergos|manjaro|apricity"
 # -----------------------------------------------------------------------------]
 
 if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
