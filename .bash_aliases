@@ -82,7 +82,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 	__PullAllGitHubs__() {
 		pushd . >/dev/null;
 		echo -e ":: \033[1mThe git repositories pulling process starts...\033[0m"
-		[[ -d "$HOME"/gitProjects/ ]] && { [[ "$1" = "-p" ]] || [[ "$1" = "" ]] ; } && {
+		[[ -d "$HOME"/gitProjects/ ]] && { [[ "$1" = "-p" ]] || [[ "$1" = "-a" ]] || [[ "$1" = "" ]] ; } && {
 			cd "$HOME"/gitProjects/;
 			echo -e "\n\033[1mI'm pulling the gitProjects directories...\033[0m\n";
 			for d in $(ls -d */ -1)
@@ -95,7 +95,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 				cd ..;
 			done;
 		}
-		[[ -d "$HOME"/gitClones/ ]] && { [[ "$1" = "-c" ]] || [[ "$1" = "" ]] ; } && {
+		[[ -d "$HOME"/gitClones/ ]] && { [[ "$1" = "-c" ]] || [[ "$1" = "-a" ]] || [[ "$1" = "" ]] ; } && {
 			cd "$HOME"/gitClones/;
 			echo -e "\n\033[1mI'm pulling the gitClones directories...\033[0m\n";
 			for d in $(ls -d */ -1)
@@ -108,7 +108,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 				cd ..;
 			done;
 		}
-		[[ -d "$HOME"/gitDirs/ ]] && { [[ "$1" = "-d" ]] || [[ "$1" = "" ]] ; } && {
+		[[ -d "$HOME"/gitDirs/ ]] && { [[ "$1" = "-d" ]] || [[ "$1" = "-a" ]] || [[ "$1" = "" ]] ; } && {
 			cd "$HOME"/gitDirs/;
 			echo -e "\n\033[1mI'm pulling the gitDirs directories...\033[0m\n";
 			for d in $(ls -d */ -1)
