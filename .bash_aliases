@@ -78,48 +78,36 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 
 # -----------------------------------------------------------------------[ git ]
 [[ $(which git 2>/dev/null) ]] && {
+	__PullAllGitHubs__ () {
 
-	__PullAllGitHubs__() {
+		__DoPull__ () {
+			for d in $(ls -d */ -1)
+			do
+				echo -e "\033[1mGetting into ${d}\033[0m"; cd "${d}";
+				echo "Cleaning the repository...";
+				git clean -d -f || break;
+				echo "Pulling GitHub's data...";
+				{ git reset --hard origin/master; git pull; } || break;
+				cd ..;
+			done;
+		}
+
 		pushd . >/dev/null;
 		echo -e ":: \033[1mThe git repositories pulling process starts...\033[0m"
 		[[ -d "$HOME"/gitProjects/ ]] && { [[ "$1" = "-p" ]] || [[ "$1" = "-a" ]] || [[ "$1" = "" ]] ; } && {
 			cd "$HOME"/gitProjects/;
-			echo -e "\n\033[1mI'm pulling the gitProjects directories...\033[0m\n";
-			for d in $(ls -d */ -1)
-			do
-				echo -e "\033[1mGetting into ${d}\033[0m"; cd "${d}";
-				echo "Pulling GitHub's data...";
-				git pull || break;
-				echo "Cleaning the repository...";
-				git clean -d -f || break;
-				cd ..;
-			done;
+			echo -e "\n\033[1mI'm pulling the "$HOME"/gitProjects directories...\033[0m\n";
+			__DoPull__;
 		}
 		[[ -d "$HOME"/gitClones/ ]] && { [[ "$1" = "-c" ]] || [[ "$1" = "-a" ]] || [[ "$1" = "" ]] ; } && {
 			cd "$HOME"/gitClones/;
-			echo -e "\n\033[1mI'm pulling the gitClones directories...\033[0m\n";
-			for d in $(ls -d */ -1)
-			do
-				echo -e "\033[1mGetting into ${d}\033[0m"; cd "${d}";
-				echo "Pulling GitHub's data...";
-				git pull || break;
-				echo "Cleaning the repository...";
-				git clean -d -f || break;
-				cd ..;
-			done;
+			echo -e "\n\033[1mI'm pulling the "$HOME"/gitClones directories...\033[0m\n";
+			__DoPull__;
 		}
 		[[ -d "$HOME"/gitDirs/ ]] && { [[ "$1" = "-d" ]] || [[ "$1" = "-a" ]] || [[ "$1" = "" ]] ; } && {
 			cd "$HOME"/gitDirs/;
-			echo -e "\n\033[1mI'm pulling the gitDirs directories...\033[0m\n";
-			for d in $(ls -d */ -1)
-			do
-				echo -e "\033[1mGetting into ${d}\033[0m"; cd "${d}";
-				echo "Pulling GitHub's data...";
-				git pull || break;
-				echo "Cleaning the repository...";
-				git clean -d -f || break;
-				cd ..;
-			done;
+			echo -e "\n\033[1mI'm pulling the "$HOME"/gitDirs directories...\033[0m\n";
+			__DoPull__;
 		}
 		echo -e "\n:: \033[1mThe git repositories pulling process finished.\033[0m"
 		popd >/dev/null;
