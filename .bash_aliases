@@ -126,7 +126,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 	}
 
 	alias ga='git add'
-	alias gb='git branch -a'
+	alias gbk='git reset --soft HEAD~1'
 	alias gc='git checkout'
 	alias gcln='git clone --depth 1'
 	alias gclr='git clean -d -f'
