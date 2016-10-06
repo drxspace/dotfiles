@@ -87,7 +87,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 				echo "Cleaning the repository...";
 				git clean -d -f || break;
 				echo "Pulling GitHub's data...";
-				{ git reset --hard origin/master; git pull; } || break;
+				{ [[ "$1" != "--no_reset" ]] && git reset --hard origin/master; git pull; } || break;
 				cd ..;
 			done;
 		}
@@ -97,7 +97,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 		[[ -d "$HOME"/gitProjects/ ]] && { [[ "$1" = "-p" ]] || [[ "$1" = "-a" ]] || [[ "$1" = "" ]] ; } && {
 			cd "$HOME"/gitProjects/;
 			echo -e "\n\033[1mI'm pulling the "$HOME"/gitProjects directories...\033[0m\n";
-			__DoPull__;
+			__DoPull__ --no_reset;
 		}
 		[[ -d "$HOME"/gitClones/ ]] && { [[ "$1" = "-c" ]] || [[ "$1" = "-a" ]] || [[ "$1" = "" ]] ; } && {
 			cd "$HOME"/gitClones/;
