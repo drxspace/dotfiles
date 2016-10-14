@@ -128,6 +128,7 @@ fi
 
 # HTTPS clone URL: https://github.com/Manouchehri/archey.git
 if [[ $(which screenfetch 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then screenfetch;
+elif [[ $(which archey 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then archey;
 elif [[ $(which fortune 2>/dev/null) ]] && [[ $(which cowsay 2>/dev/null) ]] && [[ $EUID -ne 0 ]]; then fortune | cowsay -f turtle; fi
 
 unset VC
