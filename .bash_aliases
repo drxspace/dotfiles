@@ -114,6 +114,7 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 	}
 
 	alias ga='git add'
+	alias gamend='git commit --amend -m'
 	alias gbk='git reset --soft HEAD~1'
 	alias gc='git checkout'
 	alias gclo='git clone --depth 1'
@@ -126,8 +127,9 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 	alias grm='git rm'
 	alias gs='git status'
 	alias gull='git reset --hard origin/master; git pull'
-	alias gundo='git reset --hard'
+	alias gun='git reset --hard'
 	alias gush='git push'
+	alias gushf='git push --force'
 }
 # -----------------------------------------------------------------------------]
 
