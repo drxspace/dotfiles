@@ -8,8 +8,8 @@
 .nautilus-desktop.nautilus-canvas-item:active,
 .nautilus-desktop.nautilus-canvas-item:hover,
 .nautilus-desktop.nautilus-canvas-item:selected {
-	margin: 1px;
-	margin-top: 2px;
+/*	margin: 1px;
+	margin-top: 2px;*/
 	padding: 2px;
 	text-shadow: none;
 }
