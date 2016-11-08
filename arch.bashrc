@@ -11,11 +11,18 @@
 
 # enable color support of ls and also add handy aliases
 if [[ $VC -eq 0 ]] && [[ -x /usr/bin/dircolors ]] ; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	if [[ -f $HOME/.dircolors_256 ]] && eval $(dircolors -b $HOME/.dircolors_256); then
+		export TERM='xterm-256color'
+	elif [[ -f $HOME/.dircolors ]] && eval $(dircolors -b $HOME/.dircolors); then
+		export TERM='xterm-color'
+	else
+		eval "$(dircolors -b)"
+	fi
+
 	alias ls='ls --color=auto'
 	#alias dir='dir --color=auto'
 	#alias vdir='vdir --color=auto'
-
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
@@ -61,4 +68,4 @@ elif [[ $(which fortune 2>/dev/null) ]] && [[ $(which cowsay 2>/dev/null) ]] && 
 
 unset VC
 
-export EDITOR="vi"
+export EDITOR="vim"

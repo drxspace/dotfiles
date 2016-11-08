@@ -65,20 +65,27 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-	PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-	;;
-*)
-	;;
+	xterm*|rxvt*)
+		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+		;;
+	*)
+		;;
 esac
 
 # enable color support of ls and also add handy aliases
 if [[ $VC -eq 0 ]] && [[ -x /usr/bin/dircolors ]] ; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	if [[ -f $HOME/.dircolors_256 ]] && eval $(dircolors -b $HOME/.dircolors_256); then
+		export TERM='xterm-256color'
+	elif [[ -f $HOME/.dircolors ]] && eval $(dircolors -b $HOME/.dircolors); then
+		export TERM='xterm-color'
+	else
+		eval "$(dircolors -b)"
+	fi
+
 	alias ls='ls --color=auto'
 	#alias dir='dir --color=auto'
 	#alias vdir='vdir --color=auto'
-
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
