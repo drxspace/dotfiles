@@ -166,7 +166,7 @@ alias shutup='sudo shutdown -h now'
 alias srch='sudo find / -mount -iname'
 alias S='sudo'
 [[ $(which youtube-dl 2>/dev/null) ]] && {
-	alias vdu2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" --write-sub --sub-lang "en,el"'
+	alias vdu2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" --sub-lang "en,el" --convert-subs "srt" --write-sub'
 	alias you2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
 }
 alias tmount='mount | column -t'
