@@ -47,5 +47,6 @@ else
     fi
 fi
 
-# In order to use Qt, some environment variables needs to be extended.
-#export PATH=/usr/local/Trolltech/Qt-4.8.4/bin:$PATH
+# Since, you are not using GNOME, you might have to set the value of
+# DESKTOP_SESSION in your profile.
+#export DESKTOP_SESSION=gnome
