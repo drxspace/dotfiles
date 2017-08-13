@@ -68,8 +68,8 @@ if [[ $EUID -eq 0 ]]; then
 fi
 
 # ------------------------------------------------------------------------[ ls ]
-alias dl='ls -d {.*,*}/ -1'
 alias d='ls -d */ -1'
+alias dl='ls -d {.*,*}/ -1'
 alias lf='ls -1Ap | grep -v /$'
 alias lia='ls -lia'
 alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
@@ -134,43 +134,54 @@ alias ll='ls -AlhF --group-directories-first --time-style=long-iso'
 
 # ----------------------------------------------------------------------[ Misc ]
 
+__BrokenLinks__() {
+	sudo find . -mount -type l -exec sh -c 'file -b "{}" | grep -q ^broken' \; -print
+}
+
+__DirSize__ () {
+	du -shx "${1}"/* "${1}"/.[a-zA-Z0-9_]* 2> /dev/null | egrep '^ *[0-9.]*[KMG]' | sort -n > /tmp/list;
+	egrep '^ *[0-9.]*K' /tmp/list;
+	egrep '^ *[0-9.]*M' /tmp/list;
+	egrep '^ *[0-9.]*G' /tmp/list;
+	rm -rf /tmp/list;
+}
+
 if [[ ${__DISTRO__} =~ ${__DEBIANS__} ]]; then
 	alias isins='__IsInstalled__'
 fi
 
-alias ..='cd ..'
 alias ...='cd ../..'
-__BrokenLinks__() {
-	sudo find . -mount -type l -exec sh -c 'file -b "{}" | grep -q ^broken' \; -print
-}
+alias ..='cd ..'
+alias Gods='sudo chown -R root:root'
+alias Mine='sudo chown -R $(id -un):$(id -gn)'
+alias MyFiles='chown -R $(id -un):$(id -gn) 2>/dev/null'
+alias S='sudo'
+alias blkid='sudo blkid | sort'
+alias briff='diff --brief -r'
 alias brokln='__BrokenLinks__'
 alias cp='cp -v'
-alias mv='mv -v'
-alias mkdir='mkdir -v'
-alias blkid='sudo blkid | sort'
-[[ $(which bleachbit 2>/dev/null) ]] && alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
-[[ $(which colordiff 2>/dev/null) ]] && alias diff='colordiff'
-alias briff='diff --brief -r'
+alias dirsize='__DirSize__'
 alias distro='echo ${__DISTRO__}'
 alias ka='killall'
-alias ska='sudo killall'
 alias kbd='sudo kbdrate -s -r 22.0 -d 640'
-[[ $(which gnome-session-quit 2>/dev/null) ]] && alias logoff='gnome-session-quit'
-alias MyFiles='chown -R $(id -un):$(id -gn) 2>/dev/null'
-alias Mine='sudo chown -R $(id -un):$(id -gn)'
-alias Gods='sudo chown -R root:root'
-[[ $(which speedtest_cli 2>/dev/null) ]] && alias inetspeed='$(which speedtest_cli)'
+alias mkdir='mkdir -v'
+alias mv='mv -v'
 alias noless='grep -Ev '\''^(#|$)'\'''
 alias path='echo -e ${PATH//:/\\n}'
 alias shutup='sudo shutdown -h now'
+alias ska='sudo killall'
 alias srch='sudo find / -mount -iname'
-alias S='sudo'
+alias tmount='mount | column -t'
+alias wmesg='dmesg | grep -Ei "(error|warn|fail|taint|disa)"'
+
+[[ $(which speedtest_cli 2>/dev/null) ]] && alias inetspeed='$(which speedtest_cli)'
+[[ $(which gnome-session-quit 2>/dev/null) ]] && alias logoff='gnome-session-quit'
+[[ $(which bleachbit 2>/dev/null) ]] && alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
+[[ $(which colordiff 2>/dev/null) ]] && alias diff='colordiff'
 [[ $(which youtube-dl 2>/dev/null) ]] && {
 	alias vdu2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" --sub-lang "en,el" --convert-subs "srt" --write-sub'
 	alias you2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
 }
-alias tmount='mount | column -t'
-alias wmesg='dmesg | grep -Ei "(error|warn|fail|taint|disa)"'
 # -----------------------------------------------------------------------------]
 
 # ---------------------------------------------------------------------[ Other ]
