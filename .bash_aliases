@@ -179,7 +179,7 @@ alias wmesg='dmesg | grep -Ei "(error|warn|fail|taint|disa)"'
 [[ $(which bleachbit 2>/dev/null) ]] && alias clean='bleachbit --preset --clean | grep -v "^[debug|info]"'
 [[ $(which colordiff 2>/dev/null) ]] && alias diff='colordiff'
 [[ $(which youtube-dl 2>/dev/null) ]] && {
-	alias vdu2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" --sub-lang "en,el" --convert-subs "srt" --write-sub'
+	alias vdu2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --sub-lang "en,el" --convert-subs "srt" --write-sub --merge-output-format mp4'
 	alias you2me='youtube-dl -q --console-title -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 1'
 }
 # -----------------------------------------------------------------------------]
